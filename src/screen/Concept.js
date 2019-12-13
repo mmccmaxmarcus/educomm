@@ -1,0 +1,114 @@
+import React, { Component } from 'react';
+import {
+    View,
+    Text,
+    FlatList,
+    StyleSheet,
+    TouchableOpacity,
+    Alert,
+} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+export default class Concept extends Component {
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: navigation.getParam('title'),
+        };
+    };
+
+    renderSeparator = () => {
+        return (
+            <View
+                style={{
+                    height: 1,
+                    width: "100%",
+                    backgroundColor: "#CED0CE",
+                    marginLeft: "0%"
+                }}
+            />
+        );
+    };
+
+    renderItem = ({ item }) => {
+  
+        const elements = id => {
+            this.props.navigation.getParam('concepts').forEach(value => {
+                if (value.id === id) {
+                    this.props.navigation.navigate("IConceptImplStack", {
+                        conceptImpl: value.IConceptImpl,
+                        concept: value.concept
+                    })
+                }
+            })
+        }
+
+
+        return (
+            <View style={styles.container}>
+                
+                <View style={styles.descItem}>
+                    <TouchableOpacity onPress={() => { elements(item.id) }}>
+                        <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'left' }}>{item.concept}</Text>
+                    </TouchableOpacity>
+
+                    <View style={styles.icons}>
+                        <Icon
+                            style={styles.iconBordaEsquerda}
+                            name="pencil-square-o"
+                            size={35}
+                            color="black"
+                        />
+                        <Icon
+                            style={styles.iconBordaMeio}
+                            name="user"
+                            size={35}
+                            color="black"
+                        />
+                        <Icon
+                            style={styles.iconBordaDireita}
+                            name="ellipsis-h"
+                            size={35}
+                            color="black"
+                        />
+                    </View>
+                </View>
+            </View>
+        );
+    };
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <FlatList
+                    data={this.props.navigation.getParam('concepts')}
+                    keyExtractor={item => `${item.id}`}
+                    renderItem={this.renderItem}
+                    ItemSeparatorComponent={this.renderSeparator}
+                />
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        marginVertical: 10,
+        flexDirection: 'row',
+        justifyContent: 'center'
+
+    },
+    descItem: {
+        flexDirection: 'column',
+        width: '78%'
+    },
+    icons: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginVertical: 15,
+        borderWidth: 1,
+        borderRadius: 30,
+        padding: 8
+
+    },
+});
