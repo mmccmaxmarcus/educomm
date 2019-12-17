@@ -7,12 +7,15 @@ import Concept from './screen/Concept';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import React, { Component } from 'react';
 import IConceptImpl from './screen/IConceptImpl'
+import Exercice from './screen/Exercice'
 
 const MainStack = createStackNavigator(
     {
         ModuleStack: { screen: Module },
         ConceptStack: { screen: Concept },
-        IConceptImplStack: { screen: IConceptImpl }
+        IConceptImplStack: { screen: IConceptImpl},
+        ExerciceStack: {screen: Exercice}
+
     },
     {
         initialRouteName: 'ModuleStack',

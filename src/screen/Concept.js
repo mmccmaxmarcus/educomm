@@ -30,7 +30,7 @@ export default class Concept extends Component {
     };
 
     renderItem = ({ item }) => {
-  
+
         const elements = id => {
             this.props.navigation.getParam('concepts').forEach(value => {
                 if (value.id === id) {
@@ -42,37 +42,45 @@ export default class Concept extends Component {
             })
         }
 
+        const exerciceConcept = id => {
+            this.props.navigation.getParam('concepts').forEach(value => {
+                if (value.id === id) {
+                    this.props.navigation.navigate("ExerciceStack", {
+                        questions: value.exercise
+                    }) 
+                }
+            })
+        }
+
 
         return (
-            <View style={styles.container}>
-                
+
                 <View style={styles.descItem}>
                     <TouchableOpacity onPress={() => { elements(item.id) }}>
                         <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'left' }}>{item.concept}</Text>
                     </TouchableOpacity>
 
                     <View style={styles.icons}>
+                        <TouchableOpacity onPress={() => {exerciceConcept(item.id)}}>
+                            <Icon
+                                style={styles.iconBordaEsquerda}
+                                name="pencil-square-o"
+                                size={35}
+                                color="black"
+                            />
+                        </TouchableOpacity>
                         <Icon
-                            style={styles.iconBordaEsquerda}
-                            name="pencil-square-o"
-                            size={35}
-                            color="black"
-                        />
-                        <Icon
-                            style={styles.iconBordaMeio}
                             name="user"
                             size={35}
                             color="black"
                         />
                         <Icon
-                            style={styles.iconBordaDireita}
                             name="ellipsis-h"
                             size={35}
                             color="black"
                         />
                     </View>
                 </View>
-            </View>
         );
     };
 

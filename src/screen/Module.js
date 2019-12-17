@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ContentModule from './ContentModule'
+import ContentModule from '../components/ContentModule'
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { DrawerActions } from 'react-navigation';
@@ -44,7 +44,7 @@ export default class Module extends Component {
 								text: '1) questao teste',
 								exercices: [
 									{
-										id: Math.random(), subText: '1) item 1',
+										id: Math.random(), subText: '1) item 1', correct: true,
 									},
 									{
 										id: Math.random(), subText: '2) item 2',
