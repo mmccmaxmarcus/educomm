@@ -47,21 +47,21 @@ export default class Concept extends Component {
                 if (value.id === id) {
                     this.props.navigation.navigate("ExerciceStack", {
                         questions: value.exercise
-                    }) 
+                    })
                 }
             })
         }
 
 
         return (
-
+            <View style={styles.container}>
                 <View style={styles.descItem}>
                     <TouchableOpacity onPress={() => { elements(item.id) }}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'left' }}>{item.concept}</Text>
+                        <Text style={styles.textConcept}>{item.concept}</Text>
                     </TouchableOpacity>
 
                     <View style={styles.icons}>
-                        <TouchableOpacity onPress={() => {exerciceConcept(item.id)}}>
+                        <TouchableOpacity onPress={() => { exerciceConcept(item.id) }}>
                             <Icon
                                 style={styles.iconBordaEsquerda}
                                 name="pencil-square-o"
@@ -81,6 +81,7 @@ export default class Concept extends Component {
                         />
                     </View>
                 </View>
+            </View>
         );
     };
 
@@ -101,14 +102,21 @@ export default class Concept extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginVertical: 10,
+        marginVertical: 5,
         flexDirection: 'row',
-        justifyContent: 'center'
+        justifyContent: 'center',
 
     },
     descItem: {
+
         flexDirection: 'column',
-        width: '78%'
+        width: '80%',
+
+    },
+    textConcept: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        textAlign: 'left'
     },
     icons: {
         flexDirection: 'row',

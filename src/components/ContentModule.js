@@ -18,8 +18,8 @@ class ContentModule extends Component {
                         <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
                             {this.props.moduleContent}
                         </Text>
-                 
                     </TouchableOpacity>
+
                 </View>
 
                 <View style={styles.icons}>
