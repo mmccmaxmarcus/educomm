@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import ContentModule from '../components/ContentModule'
 
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { DrawerActions } from 'react-navigation';
-import { Text, FlatList, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Text, FlatList, StyleSheet, View, TouchableOpacity, Alert } from 'react-native'
 import data from '../data/data'
 export default class Module extends Component {
 
@@ -22,7 +21,7 @@ export default class Module extends Component {
 
 	state = {
 		module: data
-			
+
 	}
 	render() {
 
@@ -39,6 +38,20 @@ export default class Module extends Component {
 			});
 		};
 
+		const moduleToExercices = id => {
+			const modules = [...this.state.module]
+			modules.forEach(value => {
+				if (value.id === id) {
+					if (value.exercise === undefined) {
+						Alert.alert('Sem exercício no momento')
+					} else
+						this.props.navigation.navigate("ExerciceStack", {
+							questions: value.exercise
+						})
+				}
+			})
+		}
+
 		return (
 			<View style={styles.container}>
 				<FlatList data={this.state.module} keyExtractor={(item) => `${item.id}`}
@@ -47,6 +60,7 @@ export default class Module extends Component {
 							key={item.id}
 							{...item}
 							moduleToConcept={moduleToConcept}
+							moduleToExercices={moduleToExercices}
 						/>
 					)} />
 			</View>

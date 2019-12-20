@@ -45,9 +45,14 @@ export default class Concept extends Component {
         const exerciceConcept = id => {
             this.props.navigation.getParam('concepts').forEach(value => {
                 if (value.id === id) {
-                    this.props.navigation.navigate("ExerciceStack", {
-                        questions: value.exercise
-                    })
+                    if (value.exercise === undefined) {
+                        Alert.alert("Sem exercício no momento")
+                    } else {
+                        this.props.navigation.navigate("ExerciceStack", {
+                            questions: value.exercise
+                        })
+                    }
+                    
                 }
             })
         }

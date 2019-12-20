@@ -23,12 +23,14 @@ class ContentModule extends Component {
                 </View>
 
                 <View style={styles.icons}>
-                    <Icon
-                        style={styles.iconBorderLeft}
-                        name="pencil-square-o"
-                        size={35}
-                        color={'black'}
-                    />
+                    <TouchableOpacity onPress={() => this.props.moduleToExercices(this.props.id)}>
+                        <Icon
+                            style={styles.iconBorderLeft}
+                            name="pencil-square-o"
+                            size={35}
+                            color={'black'}
+                        />
+                    </TouchableOpacity>
                     <Icon
                         style={styles.iconBorderRight}
                         name="list"

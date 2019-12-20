@@ -61,6 +61,23 @@ const data = [
 								id: Math.random(), subText: '- Implantação de um Call Center;',
 							},],
 					},],
+				exercise: [
+					{
+						text: '1) questao teste',
+						exercices: [
+							{
+								id: Math.random(), subText: '1) item 1',
+							},
+							{
+								id: Math.random(), subText: '2) item 2',
+							},
+							{
+								id: Math.random(), subText: '3) item 3',
+							},
+							{
+								id: Math.random(), subText: '4) item 4',
+							},],
+					},],
 			},
 			{
 				id: Math.random(), concept: 'What is Project Management?',
@@ -154,30 +171,30 @@ const data = [
 		exercise: [
 			{
 				id: Math.random(), text: '1) The life cycle of a product consists of the following phases: initiation, planning, execution, control, and closure.',
-				subTexts: [
+				exercices: [
 					{
 						id: Math.random(), subText: '1) False',
 					},
 					{
 						id: Math.random(), subText: '2) True',
 					},],
-			},], exercise: [
-				{
-					id: Math.random(), text: '2) PMBOK defines a project as:',
-					subTexts: [
-						{
-							id: Math.random(), subText: 'a) A process of relevance and considerable risk to the organization that must be implemented following a tight budget.',
-						},
-						{
-							id: Math.random(), subText: 'b) Um grupo de atividades gerenciado de forma coordenada para atingir um resultado desejado',
-						},
-						{
-							id: Math.random(), subText: 'c) Um empreendimento temporário que tem por objetivo criar um produto ou serviço único',
-						},
-						{
-							id: Math.random(), subText: 'd) Um conjunto de atividades que devem ser empreendidas obedecendo a procedimentos, custos e a prazos preestabelecidos',
-						},],
-				},],
+			},
+			{
+				id: Math.random(), text: '2) PMBOK defines a project as:',
+				exercices: [
+					{
+						id: Math.random(), subText: 'a) A process of relevance and considerable risk to the organization that must be implemented following a tight budget.',
+					},
+					{
+						id: Math.random(), subText: 'b) Um grupo de atividades gerenciado de forma coordenada para atingir um resultado desejado',
+					},
+					{
+						id: Math.random(), subText: 'c) Um empreendimento temporário que tem por objetivo criar um produto ou serviço único',
+					},
+					{
+						id: Math.random(), subText: 'd) Um conjunto de atividades que devem ser empreendidas obedecendo a procedimentos, custos e a prazos preestabelecidos',
+					},],
+			},],
 	},
 	{
 		id: Math.random(), moduleContent: 'References',

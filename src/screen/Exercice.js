@@ -59,7 +59,7 @@ class Exercice extends React.Component {
 
             if (nextIndex >= state.totalCount) {
                 nextIndex = state.activeQuestionIndex = 0
-                this.props.navigation.popToTop();
+                this.props.navigation.navigate("ConceptStack");
             }
 
             return {
