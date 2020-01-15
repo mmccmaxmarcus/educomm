@@ -15,7 +15,7 @@ class ContentModule extends Component {
                 <View style={styles.modules}>
                     <TouchableOpacity
                         onPress={() => this.props.moduleToConcept(this.props.id)}>
-                        <Text style={{ fontWeight: 'bold', fontSize: 20 }}>
+                        <Text style={styles.text}>
                             {this.props.moduleContent}
                         </Text>
                  
@@ -61,6 +61,10 @@ const styles = StyleSheet.create({
         shadowRadius: 8.3,
 
         elevation: 13,
+    },
+    text:{
+        fontWeight: 'bold', 
+        fontSize: 20 
     },
     modules: {
         flexDirection: 'column',

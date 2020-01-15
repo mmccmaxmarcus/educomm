@@ -49,7 +49,8 @@ export default class Concept extends Component {
                         Alert.alert("Sem exercício no momento")
                     } else {
                         this.props.navigation.navigate("ExerciceStack", {
-                            questions: value.exercise
+                            questions: value.exercise,
+                            concept: value.concept
                         })
                     }
                     

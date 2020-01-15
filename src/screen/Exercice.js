@@ -4,27 +4,23 @@ import { View, StyleSheet, StatusBar, Text, SafeAreaView, Button } from "react-n
 //import {  ButtonContainer, Alert } from "../components/Button";
 import { Alert } from "../components/Alert";
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: "#36B1F0",
-        flex: 1,
-        paddingHorizontal: 20
-    },
-    text: {
-        color: "black",
-        fontSize: 25,
-        textAlign: "center",
-        letterSpacing: -0.02,
-        fontWeight: "600"
-    },
-    safearea: {
-        flex: 1,
-        marginTop: 100,
-        justifyContent: "space-between"
-    }
-});
+
 
 class Exercice extends React.Component {
+
+    static navigationOptions = ({ navigation }) => {
+        if (navigation.getParam('module') != undefined) {
+            return {
+                title: `Exercício sobre ${navigation.getParam('module')}`,
+            };
+        }else{
+            return{
+                title: `Exercício sobre ${navigation.getParam('concept')}`
+            }
+        }
+        
+    };
+
     state = {
         correctCount: 0,
         totalCount: this.props.navigation.getParam("questions", []).length || null,
@@ -106,5 +102,25 @@ class Exercice extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: "#36B1F0",
+        flex: 1,
+        paddingHorizontal: 20
+    },
+    text: {
+        color: "black",
+        fontSize: 25,
+        textAlign: "center",
+        letterSpacing: -0.02,
+        fontWeight: "600"
+    },
+    safearea: {
+        flex: 1,
+        marginTop: 100,
+        justifyContent: "space-between"
+    }
+});
 
 export default Exercice;
